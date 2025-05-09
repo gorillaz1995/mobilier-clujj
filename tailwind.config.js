@@ -17,8 +17,28 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        manrope: ["var(--font-manrope)"],
+        sora: ["var(--font-sora)"],
+        sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
+        heading: ["var(--font-sora)", "system-ui", "sans-serif"],
+      },
+      fontWeight: {
+        thin: "100",
+        extralight: "200",
+        light: "300",
+        normal: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+        extrabold: "800",
+      },
       colors: {
-        background: "#EEEEE6", // soft ivory
+        background: {
+          DEFAULT: "#211908", // base color from gradient
+          gradient:
+            "linear-gradient(to right top, #040301, #130f04, #1d1708, #261e0b, #30250d, #32260d, #34280e, #36290e, #31250d, #2b210c, #261d0a, #211908)",
+        }, // rich brown gradient replacing soft ivory
         foreground: "#2B2B33", // deep navy-black
         headline: "#121219", // midnight blue-black
         gold: "#D4B254", // bright gold
@@ -102,4 +122,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
