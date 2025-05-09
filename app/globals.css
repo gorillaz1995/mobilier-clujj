@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 60 14% 92%;
+  --foreground: 240 10% 19%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 19%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 19%;
+
+  --primary: 240 10% 19%;
+  --primary-foreground: 60 14% 92%;
+
+  --secondary: 41 57% 58%;
+  --secondary-foreground: 240 19% 9%;
+
+  --muted: 38 12% 33%;
+  --muted-foreground: 60 14% 92%;
+
+  --accent: 41 57% 58%;
+  --accent-foreground: 240 19% 9%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 14% 92%;
+
+  --border: 38 12% 33%;
+  --input: 38 12% 33%;
+  --ring: 41 57% 58%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 240 19% 9%;
+  --foreground: 60 14% 92%;
+
+  --card: 240 10% 19%;
+  --card-foreground: 60 14% 92%;
+
+  --popover: 240 10% 19%;
+  --popover-foreground: 60 14% 92%;
+
+  --primary: 60 14% 92%;
+  --primary-foreground: 240 10% 19%;
+
+  --secondary: 41 57% 58%;
+  --secondary-foreground: 240 19% 9%;
+
+  --muted: 38 12% 33%;
+  --muted-foreground: 60 14% 92%;
+
+  --accent: 41 57% 58%;
+  --accent-foreground: 240 19% 9%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 60 14% 92%;
+
+  --border: 38 12% 33%;
+  --input: 38 12% 33%;
+  --ring: 41 57% 58%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-headline font-semibold;
+  }
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bento-item {
+  @apply rounded-xl overflow-hidden relative;
+  min-height: 250px;
+}
+
+.bento-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media (max-width: 767px) {
+  .bento-item.large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+.timeline-container {
+  @apply relative;
+}
+
+.timeline-container::before {
+  content: "";
+  @apply absolute left-0 md:left-1/2 h-full w-1 bg-gold transform md:-translate-x-1/2;
+}
+
+.timeline-item {
+  @apply relative mb-16;
+}
+
+.timeline-item::after {
+  content: "";
+  @apply absolute left-0 md:left-1/2 top-0 w-4 h-4 rounded-full bg-gold transform md:-translate-x-1/2;
+}
+
+.timeline-content {
+  @apply ml-8 md:ml-0 md:w-5/12 p-6 bg-white rounded-lg shadow-lg;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  @apply md:ml-auto;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  @apply md:mr-auto;
+}
+
+@media (min-width: 768px) {
+  .timeline-item:nth-child(even) .timeline-content {
+    @apply ml-auto mr-0;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content {
+    @apply ml-0 mr-auto;
+  }
+}
+
+.image-carousel {
+  @apply overflow-hidden relative;
+}
+
+.carousel-container {
+  @apply flex transition-transform duration-500 ease-in-out;
+}
+
+.carousel-item {
+  @apply flex-shrink-0 w-full;
+}
+
+.carousel-controls {
+  @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2;
+}
+
+/* Modificăm stilul pentru carousel dots pentru a folosi accentul auriu */
+
+.carousel-dot {
+  @apply w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-all duration-300;
+}
+
+.carousel-dot.active {
+  @apply bg-gold transform scale-125;
+  box-shadow: 0 0 10px rgba(212, 178, 84, 0.5);
+}
+
+/* Adaug efectul de strălucire interioară pentru accentele aurii */
+.gold-accent {
+  position: relative;
+  color: #d4b254;
+  text-shadow: 0 0 5px rgba(212, 178, 84, 0.3);
+  background: linear-gradient(to right, #d4b254, #e6c978, #d4b254);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-accent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Adaug clase pentru culorile mai estompate */
+.bg-muted-headline {
+  background-color: rgba(18, 18, 25, 0.9);
+}
+
+.text-muted-background {
+  color: rgba(238, 238, 230, 0.9);
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #d4b254, #e6c978);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.gold-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+
+.gold-button:hover::before {
+  left: 100%;
+}
+
+/* Adaug stiluri pentru textul din hero cu efect de umbră */
+.hero-text {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustez stilurile pentru bento grid pentru a se potrivi cu noua schemă de culori */
+.bento-item .absolute {
+  background: linear-gradient(to top, rgba(18, 18, 25, 0.9), rgba(18, 18, 25, 0.2), transparent);
+}
