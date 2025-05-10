@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { PhoneCall, ArrowRight } from "lucide-react";
 import HelloWorldFullView from "@/components/Embla-carousel";
 import Animatedfurniture from "@/components/Animatedfurniture";
-
+import LogoShowcase from "@/components/reel-logo/logo-showcase";
 export default function Home() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -77,8 +77,9 @@ export default function Home() {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl lg:text-9xl text-headline mb-6 font-sora font-extralight pb-5">
-              <span className="inline-block px-2 py-1  ">
-                Mobilier Personalizat
+              <span className="inline-block px-2 py-1 backdrop-blur-[2px] bg-black/40 text-gold font-bold relative">
+                Mobilier Personalizat Cluj
+                {/* Removed noise texture overlay since the image doesn't exist */}
               </span>{" "}
               <span className="font-manrope font-bold text-2xl lg:text-4xl block pt-4 px-2 py-1 backdrop-blur-[2px] bg-[#D4B254]/2  mt-2">
                 Visele dumneavoastra prind contur in mainile noastre.
@@ -213,6 +214,8 @@ export default function Home() {
         </div>
       </section>
 
+      <LogoShowcase />
+
       <HelloWorldFullView />
 
       {/* Story Section */}
@@ -267,10 +270,9 @@ export default function Home() {
                   }}
                 >
                   Utilizăm doar materiale de cea mai înaltă calitate, de la
-                  esențe rare de lemn la furniruri exclusiviste, de la piatră
-                  naturală la metale prețioase. Puteți alege orice material vă
-                  doriți, iar noi îl vom integra perfect în designul
-                  mobilierului dumneavoastră.
+                  furniruri exclusiviste la piatră naturală și metale prețioase.
+                  Puteți alege orice material vă doriți, iar noi îl vom integra
+                  perfect în designul mobilierului dumneavoastră.
                 </p>
                 <ul className="space-y-2 text-muted font-manrope">
                   <li className="flex items-start">
@@ -282,7 +284,7 @@ export default function Home() {
                           "radial-gradient(circle, #f1e2c5, #f2e5ca, #f3e8d0, #f5ead5, #f6eddb, #f7eedd, #f7f0e0, #f8f1e2, #f8f1e2, #f8f1e2, #f8f1e2, #f8f1e2)",
                       }}
                     >
-                      Lemn masiv din esențe rare și prețioase
+                      PAL, MDF melaminat, MDF vopsit și MDF înfoliat
                     </span>
                   </li>
                   <li className="flex items-start">

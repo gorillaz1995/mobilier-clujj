@@ -1,0 +1,221 @@
+/* Base styles */
+
+/* Responsive adjustments for the fade effect */
+@media (min-width: 768px) {
+  :root {
+    --fade-edge-width: 80px;
+    --fade-edge-opacity: 0.9;
+  }
+}
+
+/* Logo Showcase Styles */
+.logo-showcase {
+  width: 100%;
+  /* Removed background-color: black; */
+  padding: 0; /* Removed top and bottom padding */
+  height: auto; /* Auto height based on content */
+  min-height: fit-content; /* Ensures content is fully visible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* This ensures the showcase is 5% taller than its content */
+.logo-showcase > * {
+  margin: 1.15% 0; /* Adding 2.5% margin top and bottom to create 5% extra space */
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  max-width: 100%;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+.showcase-title {
+  background-image: linear-gradient(
+    to right bottom,
+    #e2c58c,
+    #debd7c,
+    #dab56c,
+    #d6ad5c,
+    #d2a54c,
+    #d2a449,
+    #d1a247,
+    #d1a144,
+    #d4a74f,
+    #d6ac5a,
+    #d9b264,
+    #dbb76f
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: thin;
+  margin-bottom: 1.35rem;
+}
+
+@media (min-width: 768px) {
+  .showcase-title {
+    font-size: 1.375rem;
+  }
+}
+
+/* Carousel styles */
+.logo-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Add edge blur effects to create emergence effect */
+.logo-carousel-container::before,
+.logo-carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Left edge blur */
+.logo-carousel-container::before {
+  left: 0;
+}
+
+/* Right edge blur */
+.logo-carousel-container::after {
+  right: 0;
+}
+
+.logo-carousel {
+  display: flex;
+  animation: scroll 12s linear infinite; /* Reduced from 30s to 20s (50% faster) */
+  width: fit-content;
+}
+
+.logo-item {
+  flex: 0 0 auto;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  position: relative;
+  /* Add emergence animation */
+  animation: emerge 1.5s ease-out;
+}
+
+/* Emergence animation for items */
+@keyframes emerge {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.logo-image {
+  max-height: 100%;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+  /* Add subtle shadow to enhance emergence effect */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-image:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Keyframes for animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Animation classes */
+.animate-scroll {
+  animation: scroll 12s linear infinite; /* Reduced from 30s to 20s (50% faster) */
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* Border radius utilities */
+.logo-showcase .rounded-lg {
+  border-radius: var(--radius);
+}
+
+.logo-showcase .rounded-md {
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.logo-showcase .rounded-sm {
+  border-radius: calc(var(--radius) - 4px);
+}
+
+/* Removed all color utilities that override global styles */
+
+/* Responsive utilities */
+@media (min-width: 768px) {
+  .logo-item {
+    padding: 0 3rem;
+  }
+
+  /* Adjust blur width for larger screens */
+  .logo-carousel-container::before,
+  .logo-carousel-container::after {
+    width: 80px;
+  }
+}

@@ -20,20 +20,20 @@ const OPTIONS: EmblaOptionsType = {
 
 // Image paths in the public folder
 const IMAGES = [
-  "/caruselimg/image00033.jpeg",
-  "/caruselimg/image00034.jpeg",
-  "/caruselimg/image00035.jpeg",
-  "/caruselimg/image00037.jpeg",
-  "/caruselimg/image00039.jpeg",
-  "/caruselimg/image00041.jpeg",
-  "/caruselimg/image00045.jpeg",
-  "/caruselimg/image00050.jpeg",
-  "/caruselimg/image00051.jpeg",
-  "/caruselimg/image00060.jpeg",
-  "/caruselimg/image00064.jpeg",
-  "/caruselimg/image00069.jpeg",
-  "/caruselimg/image00071.jpeg",
-  "/caruselimg/image00078.jpeg",
+  "/caruselimg/image01.jpg",
+  "/caruselimg/image02.jpg",
+  "/caruselimg/image03.jpg",
+  "/caruselimg/image04.jpg",
+  "/caruselimg/image05.jpg",
+  "/caruselimg/image06.jpg",
+  "/caruselimg/image07.jpg",
+  "/caruselimg/image08.jpg",
+  "/caruselimg/image09.jpg",
+  "/caruselimg/image010.jpg",
+  "/caruselimg/image011.jpg",
+  "/caruselimg/image012.jpg",
+  "/caruselimg/image013.jpg",
+  "/caruselimg/image014.jpg",
   // Add more images as needed
 ];
 
